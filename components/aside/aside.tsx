@@ -5,7 +5,6 @@ import {usePathname} from 'next/navigation'
 import {Package2} from 'lucide-react'
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '@/components/ui/tooltip'
 import {cn} from '@/lib/utils'
-
 import {router} from '@/router'
 
 export default function Aside() {

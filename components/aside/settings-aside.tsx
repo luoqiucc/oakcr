@@ -15,7 +15,7 @@ export default function SettingsAside() {
                     key={index}
                     href={item.path}
                     className={cn(
-                        'px-4 py-2',
+                        'px-4 py-2 rounded-lg',
                         item.path === pathname && 'bg-accent text-accent-foreground'
                     )}>
                     {item.title}

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     description: '查看站点的所有内容',
 }
 
-export default function Library() {
+export default function LibraryPage() {
     return (
         <>
         </>

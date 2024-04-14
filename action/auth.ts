@@ -1,7 +1,43 @@
 'use server'
 
-import {signOut} from '@/auth'
+import {signOut, signIn} from '@/auth'
+import {AuthError} from 'next-auth'
 
 export async function userSignOut() {
     await signOut()
+}
+
+export async function credentialsAuthenticate(
+    prevState: string | undefined,
+    formData: FormData,
+) {
+    try {
+        await signIn('credentials', formData)
+    } catch (error) {
+        if (error instanceof AuthError) {
+            switch (error.type) {
+                case 'CredentialsSignin':
+                    return 'Invalid credentials.'
+                default:
+                    return 'Something went wrong.'
+            }
+        }
+        throw error
+    }
+}
+
+export async function githubAuthenticate() {
+    try {
+        await signIn('github')
+    } catch (error) {
+        if (error instanceof AuthError) {
+            switch (error.type) {
+                case 'CredentialsSignin':
+                    return 'Invalid credentials.'
+                default:
+                    return 'Something went wrong.'
+            }
+        }
+        throw error
+    }
 }

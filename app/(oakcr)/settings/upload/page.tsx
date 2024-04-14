@@ -5,7 +5,7 @@ export const metadata: Metadata = {
     description: '应用设置',
 }
 
-export default function UploadSettings() {
+export default function UploadSettingsPage() {
     return (
         <>
         </>

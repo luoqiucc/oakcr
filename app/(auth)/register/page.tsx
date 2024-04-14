@@ -1,13 +1,14 @@
-import Image from 'next/image'
-import Link from 'next/link'
+'use client'
 
+import Link from 'next/link'
 import {Button} from '@/components/ui/button'
 import {Input} from '@/components/ui/input'
 import {Label} from '@/components/ui/label'
 import {TypographyH2, TypographySmall} from '@/components/ui/typography'
-import GithubProvider from '@/components/sign-in-provider/github-provider'
+import SignInGithubForm from '@/components/auth/sign-in/sign-in-github-form'
+import CoverImage from '@/components/auth/cover-image'
 
-export default function Register() {
+export default function RegisterPage() {
     return (
         <div className="w-[100vw] h-[100vh] flex">
             <div className="w-full md:w-[50vw] h-full flex items-center justify-center">
@@ -35,13 +36,13 @@ export default function Register() {
                         </Button>
                     </form>
                     <hr className="my-4"/>
-                    <GithubProvider/>
+                    <SignInGithubForm/>
                     <div className="mt-4">
                         <TypographySmall>
                             已经注册过?{' '}
                             <Link
                                 href={'/sign-in'}
-                                className="text-primary">
+                                className="text-primary underline">
                                 登录
                             </Link>
                         </TypographySmall>
@@ -49,12 +50,7 @@ export default function Register() {
                 </div>
             </div>
             <div className="hidden md:block w-[50vw] h-full bg-muted">
-                <Image
-                    src="/images/auth/register_cover.jpg"
-                    alt="sign in"
-                    width="1920"
-                    height="1080"
-                    className="h-full w-full object-cover"/>
+                <CoverImage src={'/images/auth/register_cover.jpg'}/>
             </div>
         </div>
     )
